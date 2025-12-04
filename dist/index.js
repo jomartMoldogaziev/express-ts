@@ -1,4 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log('Hello, World!');
+const app_1 = require("./app");
+const server = (0, app_1.buildServer)();
+const start = async () => {
+    const PORT = 5000;
+    try {
+        server.listen({
+            port: PORT,
+            host: "0.0.0.0",
+        }, () => {
+            console.log(`${new Date()} `);
+            console.log(`Server running at: http://localhost:${PORT}`);
+        });
+    }
+    catch (error) {
+        console.error("Error starting server", error);
+    }
+};
+start();
 //# sourceMappingURL=index.js.map
