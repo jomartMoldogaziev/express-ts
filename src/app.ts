@@ -1,4 +1,5 @@
 import express from "express";
+import routes from "./routes";
 
 export const buildServer = () => {
   const server = express();
@@ -10,5 +11,8 @@ export const buildServer = () => {
             message:"Hello, World!"
         });
     });
+
+    server.use("/api/v1", routes);
+
     return server;
 };
